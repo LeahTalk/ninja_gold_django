@@ -28,22 +28,20 @@ def index(request):
     context["remaining_moves"] = "Make 300 gold in 15 moves or less! You have " + str(15 - request.session['user_moves']) + " moves remaining."
     return render(request, 'ninja_gold_app/index.html', context)
 
-def result(request):
+def result(request, place):
     request.session['user_moves'] += 1
     dateTimeObj = datetime.now()
     dateStr = str(dateTimeObj.year) + '/' + str(dateTimeObj.month) + '/' + str(dateTimeObj.day)
     timeStr = dateTimeObj.strftime("%I:%M %p")
-    action_type = request.POST['place']
-    if action_type == 'farm':
+    if place == 'farm':
         gold_earned = random.randint(10, 20)
         request.session['activities'].insert(0, {"content" : f"Earned {gold_earned} gold from the farm! ({dateStr} {timeStr})", "text_color" : 'green'})
         request.session['gold_amount'] += gold_earned
-    elif action_type == 'cave':
+    elif place == 'cave':
         gold_earned = random.randint(5, 10)
         request.session['activities'].insert(0, {"content" : f"Earned {gold_earned} gold from the cave! ({dateStr} {timeStr})", "text_color" : 'green'})
         request.session['gold_amount'] += gold_earned
-    elif action_type == 'house':
-        print("I am at the house!")
+    elif place == 'house':
         gold_earned = random.randint(2, 5)
         request.session['activities'].insert(0, {"content" : f"Earned {gold_earned} gold from the house! ({dateStr} {timeStr})", "text_color" : 'green'})
         request.session['gold_amount'] += gold_earned

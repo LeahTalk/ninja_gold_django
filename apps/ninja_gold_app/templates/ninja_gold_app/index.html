@@ -22,7 +22,7 @@
         <div class = 'place_box'>
             <h2>Farm</h2>
             <p>(earns 10-20 gold)</p>
-            <form action = '/process_money' method = 'post'>
+            <form action = '/process_money/farm' method = 'post'>
                 {% csrf_token %}
                 <input type="hidden" id="farm" name="place" value="farm">
                 <input class="btn btn-primary" type="submit" value="Find Gold!" style = "display: {{gold_button_display}}">
@@ -31,7 +31,7 @@
         <div class = 'place_box'>
             <h2>Cave</h2>
             <p>(earns 5-10 gold)</p>
-            <form action = '/process_money' method = 'post'>
+            <form action = '/process_money/cave' method = 'post'>
                 {% csrf_token %}
                 <input type="hidden" id="cave" name="place" value="cave">
                 <input class="btn btn-primary" type="submit" value="Find Gold!" style = "display: {{gold_button_display}}">
@@ -40,7 +40,7 @@
         <div class = 'place_box'>
             <h2>House</h2>
             <p>(earns 2-5 gold)</p>
-            <form action = '/process_money' method = 'post'>
+            <form action = '/process_money/house' method = 'post'>
                 {% csrf_token %}
                 <input type="hidden" id="house" name="place" value="house">
                 <input class="btn btn-primary" type="submit" value="Find Gold!" style = "display: {{gold_button_display}}">
@@ -49,7 +49,7 @@
         <div class = 'place_box'>
             <h2>Casino</h2>
             <p>(earns/takes 0-50 gold)</p>
-            <form action = '/process_money' method = 'post'>
+            <form action = '/process_money/casino' method = 'post'>
                 {% csrf_token %}
                 <input type="hidden" id="casino" name="place" value="casino">
                 <input class="btn btn-primary" type="submit" value="Find Gold!" style = "display: {{gold_button_display}}">

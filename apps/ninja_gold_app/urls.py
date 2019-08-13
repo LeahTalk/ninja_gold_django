@@ -3,6 +3,6 @@ from . import views
                     
 urlpatterns = [
     url(r'^$', views.index),
-    url(r'^process_money$', views.result),
+    url(r'^process_money/(?P<place>\w+)$', views.result),
     url(r'^reset$', views.reset)
 ]
